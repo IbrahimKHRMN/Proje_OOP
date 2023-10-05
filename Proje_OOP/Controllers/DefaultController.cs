@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Proje_OOP.Ornekler;
 
 namespace Proje_OOP.Controllers
 {
@@ -65,6 +66,21 @@ namespace Proje_OOP.Controllers
         {
             PTopla(10, 20);
             Kullanıcı("HAKAN");
+            return View();
+        }
+        public IActionResult Deneme()
+        {
+            Sehirler sehirler = new Sehirler();
+            sehirler.ID = 2;
+            sehirler.SehirAdı = "Malatya";
+            sehirler.Nufus = 1200000;
+            sehirler.Ulke = "Türkiye";
+
+            ViewBag.s1 = sehirler.ID;
+            ViewBag.s2 = sehirler.Ulke;
+            ViewBag.s3 = sehirler.SehirAdı;
+            ViewBag.s4 = sehirler.Nufus;
+
             return View();
         }
     }
