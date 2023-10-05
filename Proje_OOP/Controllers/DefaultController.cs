@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Migrations.Internal;
 using Proje_OOP.Ornekler;
 
 namespace Proje_OOP.Controllers
@@ -75,11 +76,27 @@ namespace Proje_OOP.Controllers
             sehirler.SehirAdı = "Malatya";
             sehirler.Nufus = 1200000;
             sehirler.Ulke = "Türkiye";
+            sehirler.Renk1 = "Kırmızı";
+            sehirler.Renk2 = "Beyaz";
 
             ViewBag.s1 = sehirler.ID;
             ViewBag.s2 = sehirler.Ulke;
             ViewBag.s3 = sehirler.SehirAdı;
             ViewBag.s4 = sehirler.Nufus;
+            ViewBag.s5 = sehirler.Renk1 + sehirler.Renk2 + sehirler.Renk3;
+
+            sehirler.ID = 3;
+            sehirler.SehirAdı = "Antep";
+            sehirler.Nufus = 1400000;
+            sehirler.Ulke = "Türkiye";
+            sehirler.Renk1 = "Kırmızı";
+            sehirler.Renk2 = "Beyaz";
+
+            ViewBag.z1 = sehirler.ID;
+            ViewBag.z2 = sehirler.Ulke;
+            ViewBag.z3 = sehirler.SehirAdı;
+            ViewBag.z4 = sehirler.Nufus;
+            ViewBag.z5 = sehirler.Renk1 + sehirler.Renk2 + sehirler.Renk3;
 
             return View();
         }
