@@ -25,12 +25,30 @@ namespace Proje_OOP.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-        public IActionResult DeleteProduct(int id) 
+        public IActionResult DeleteProduct(int id)
         {
             var value = context.Products.Where(x => x.ProductId == id).FirstOrDefault();
             context.Remove(value);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult EditProduct(int id)
+        {
+            var value = context.Products.Where(x => x.ProductId == id).FirstOrDefault();
+            return View(value);
+        }
+        [HttpPost]
+        public IActionResult EditProduct(Product p)
+        {
+            var value = context.Products.Where(x => x.ProductId == p.ProductId).FirstOrDefault();
+            value.ProductName = p.ProductName;
+            value.ProductStock = p.ProductStock;
+            value.ProductPrice = p.ProductPrice;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
