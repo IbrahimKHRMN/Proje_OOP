@@ -10,7 +10,8 @@ namespace Proje_OOP.Controllers
         public IActionResult Index()
         {
             var values = context.Customers.ToList();
-            return View();
+            
+            return View(values);
         }
         [HttpGet]
         public IActionResult AddCustomer()
@@ -28,6 +29,7 @@ namespace Proje_OOP.Controllers
         {
             var value = context.Customers.Where(x => x.CustomerId == id).FirstOrDefault();
             context.Remove(value);
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
         [HttpGet]

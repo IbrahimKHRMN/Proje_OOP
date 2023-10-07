@@ -15,20 +15,17 @@
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
-    @if (Model != null)
+    @foreach (var item in Model)
     {
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.CustomerId</td>
-                <td>@item.CustomerName</td>
-                <td>@item.CustomerCity</td>
-                <td><a href="/Product/DeleteProduct/@item.CustomerId" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Product/EditProduct/@item.CustomerId" class="btn btn-success">Güncelle</a></td>
-            </tr>
+        <tr>
+            <td>@item.CustomerId</td>
+            <td>@item.CustomerName</td>
+            <td>@item.CustomerCity</td>
+            <td><a href="/Customer/DeleteCustomer/@item.CustomerId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Customer/UpdateCustomer/@item.CustomerId" class="btn btn-success">Güncelle</a></td>
+        </tr>
 
-        }
     }
-    
+
 </table>
-<a href="/Customer/AddCustomer/"class="btn btn-primary">Müşteri Ekle</a>
+<a href="/Customer/AddCustomer/" class="btn btn-primary">Müşteri Ekle</a>
